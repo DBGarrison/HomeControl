@@ -1,0 +1,23 @@
+<p *ngIf="!fanStatus"><em>Loading...</em></p>
+ 
+<fieldset style="width:410px;text-align:center">
+  <legend>Fan Control Updated: {{lastUpdate}}</legend>  
+  <img id="topicon" src="../../assets/images/{{topicon}}.png" width="250" height="250" (click)="handleClick('topicon')">
+  <fieldset style="width:230px;text-align:center">
+    <legend>Lights and Fan Direction</legend>
+    <div align="center">
+      <img id="fanlights" src="../../assets/images/{{fanlights}}.png" width="90" height="90" (click)="handleClick('fanlights')">
+      <img id="fandirection" src="../../assets/images/{{fandirection}}.png" width="90" height="90" (click)="handleClick('fandirection')">
+    </div>
+  </fieldset>
+  <fieldset style="width:440px;align-content:center">
+    <legend>Fan Speed</legend>
+    <div align="center">
+      <img id="speed0" src="../../assets/images/{{speed0}}.png" width="90" height="90" (click)="handleClick('speed0')">
+      <img id="speed1" src="../../assets/images/{{speed1}}.png" width="90" height="90" (click)="handleClick('speed1')">
+      <img id="speed2" src="../../assets/images/{{speed2}}.png" width="90" height="90" (click)="handleClick('speed2')">
+      <img id="speed3" src="../../assets/images/{{speed3}}.png" width="90" height="90" (click)="handleClick('speed3')">
+    </div>
+  </fieldset>
+</fieldset>
+ 

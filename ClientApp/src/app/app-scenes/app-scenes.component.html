@@ -1,0 +1,7 @@
+ 
+  <p *ngIf="!appScenes"><em>Loading...</em></p>  
+  <div *ngFor="let appScene of appScenes">
+    <app-scene [appScene]="appScene"></app-scene>    
+  </div>
+ 
+

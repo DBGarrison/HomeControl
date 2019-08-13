@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<ArrayOfControlledArea xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ControlledArea>
+    <areaId>1</areaId>
+    <areaName>Living Room</areaName>
+  </ControlledArea>
+  <ControlledArea>
+    <areaId>2</areaId>
+    <areaName>Office</areaName>
+  </ControlledArea>
+  <ControlledArea>
+    <areaId>3</areaId>
+    <areaName>Master Bath</areaName>
+  </ControlledArea>
+  <ControlledArea>
+    <areaId>4</areaId>
+    <areaName>Front Yard</areaName>
+  </ControlledArea>
+  <ControlledArea>
+    <areaId>5</areaId>
+    <areaName>Back Yard</areaName>
+  </ControlledArea>
+  <ControlledArea>
+    <areaId>6</areaId>
+    <areaName>Rear Deck</areaName>
+  </ControlledArea>
+  <ControlledArea>
+    <areaId>7</areaId>
+    <areaName>Front Deck</areaName>
+  </ControlledArea>
+  <ControlledArea>
+    <areaId>8</areaId>
+    <areaName>Garage</areaName>
+  </ControlledArea>
+  <ControlledArea>
+    <areaId>9</areaId>
+    <areaName>Garage North</areaName>
+  </ControlledArea>
+  <ControlledArea>
+    <areaId>10</areaId>
+    <areaName>Garage East</areaName>
+  </ControlledArea>
+  <ControlledArea>
+    <areaId>11</areaId>
+    <areaName>Garage West</areaName>
+  </ControlledArea>
+  <ControlledArea>
+    <areaId>12</areaId>
+    <areaName>Garage South</areaName>
+  </ControlledArea>
+  <ControlledArea>
+    <areaId>13</areaId>
+    <areaName>Kitchen</areaName>
+  </ControlledArea>
+</ArrayOfControlledArea>

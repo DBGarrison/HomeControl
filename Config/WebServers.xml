@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<ArrayOfWebServer xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <WebServer>
+    <ipAddress>RpiZero4</ipAddress>
+    <port>8000</port>
+  </WebServer>
+  <WebServer>
+    <ipAddress>RpiZero5</ipAddress>
+    <port>8000</port>
+  </WebServer>
+  <WebServer>
+    <ipAddress>RpiZero6</ipAddress>
+    <port>8000</port>
+  </WebServer>
+  <WebServer>
+    <ipAddress>RpiZero7</ipAddress>
+    <port>8000</port>
+  </WebServer>
+  <WebServer>
+    <ipAddress>RpiZero9</ipAddress>
+    <port>8000</port>
+  </WebServer>
+  <WebServer>
+    <ipAddress>RpiZero10</ipAddress>
+    <port>8000</port>
+  </WebServer>
+  <WebServer>
+    <ipAddress>RpiZero11</ipAddress>
+    <port>8000</port>
+  </WebServer>
+</ArrayOfWebServer>

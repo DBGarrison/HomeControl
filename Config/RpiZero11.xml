@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<RaspberryPi xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ipAddress>RpiZero11</ipAddress>
+  <port>8000</port>
+  <dbgLevel>Info</dbgLevel>
+  <services>MotionService RelayService</services>
+  <Relays>
+    <RelayConfig>
+      <area>Concessions</area>
+      <localDeviceId>0</localDeviceId>
+      <remoteDeviceId>0</remoteDeviceId>
+      <deviceName>Concessions Entrance</deviceName>
+      <deviceType>Relay</deviceType>
+      <pin>7</pin>
+      <state>1</state>
+      <normallyOn>0</normallyOn>
+    </RelayConfig>
+  </Relays>
+  <rfConfig>
+    <sendPin>0</sendPin>
+    <recvPin>0</recvPin>
+    <pulseLength>275</pulseLength>
+    <repeatTransmit>5</repeatTransmit>
+  </rfConfig>
+  <RFSwitches />
+  <PirDevices>
+    <PIRConfig>
+      <area>Concessions</area>
+      <localDeviceId>0</localDeviceId>
+      <remoteDeviceId>0</remoteDeviceId>
+      <deviceName>Concessions Entrance</deviceName>
+      <deviceType>Motion</deviceType>
+      <pin>25</pin>
+      <relayType>LocalRelay</relayType>
+      <relayDeviceId>1</relayDeviceId>
+    </PIRConfig>
+  </PirDevices>
+  <detectDuration>5000</detectDuration>
+  <serverOpts>
+    <browse>true</browse>
+    <browseFolder>.</browseFolder>
+    <rewrites>0</rewrites>
+  </serverOpts>
+  <webHost>
+    <ipAddress>homepc</ipAddress>
+    <port>5000</port>
+  </webHost>
+  <dht11>
+    <pin>0</pin>
+    <maxTimings>85</maxTimings>
+    <maxSamples>100</maxSamples>
+  </dht11>
+  <persisted>false</persisted>
+</RaspberryPi>

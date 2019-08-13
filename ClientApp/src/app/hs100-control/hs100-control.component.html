@@ -1,0 +1,30 @@
+<h1>HS100 Smart Plugs {{lastUpdate}}<img src="../../assets//images/reload.png" width="48" height="48" (click)="reload()"/></h1>
+
+<p *ngIf="!statusList"><em>Loading...</em></p>
+ 
+<table class='table' *ngIf="statusList">
+  <thead>
+    <tr>
+      <th>Device Name</th>
+      <th>Relay State</th>
+      <th>Toggle Relay</th>
+      <th>Led OffState</th>
+      <th>MAC</th>
+      <th>On Time</th>
+      <th>Longitute</th>
+      <th>Latitude</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let hs100 of statusList">
+      <td>{{ hs100.alias }}</td>
+      <td>{{ hs100.relayState }}</td>
+      <td><img id="toggle{{hs100.deviceId}}" src="../../assets/images/hs100-{{hs100.relayState == 1 ? 1 : 0}}.png" width="32" height="24" (click)="handleToggle($event)"/></td>
+      <td>{{ hs100.ledOffState }}</td>
+      <td>{{ hs100.mac }}</td>
+      <td>{{ hs100.onTime }}</td>
+      <td>{{ hs100.longitude }}</td>
+      <td>{{ hs100.latitude }}</td>
+    </tr>
+  </tbody>
+</table>

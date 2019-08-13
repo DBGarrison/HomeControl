@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<ArrayOfControlledArea xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ControlledArea>
+    <areaId>Tower</areaId>
+    <areaName>Race Tower</areaName>
+    <relayHosts />
+    <motionHandlers>
+      <MotionHandler>
+        <pirName>Tower SE</pirName>
+        <piCamera>
+          <ipAddress>rpiZero6</ipAddress>
+          <port>8080</port>
+        </piCamera>
+      </MotionHandler>
+      <MotionHandler>
+        <pirName>Tower SW</pirName>
+        <piCamera>
+          <ipAddress>rpiZero7</ipAddress>
+          <port>8080</port>
+        </piCamera>
+      </MotionHandler>
+      <MotionHandler>
+        <pirName>Tower NW</pirName>
+        <piCamera>
+          <ipAddress>rpiZero10</ipAddress>
+          <port>8080</port>
+        </piCamera>
+      </MotionHandler>
+    </motionHandlers>
+  </ControlledArea>
+  <ControlledArea>
+    <areaId>Concessions</areaId>
+    <areaName>Concessions</areaName>
+    <relayHosts />
+    <motionHandlers>
+      <MotionHandler>
+        <pirName>Concessions Front</pirName>
+        <piCamera>
+          <ipAddress>rpiZero5</ipAddress>
+          <port>8085</port>
+        </piCamera>
+      </MotionHandler>
+      <MotionHandler>
+        <pirName>Concessions Entrance</pirName>
+        <piCamera>
+          <ipAddress>rpiZero11</ipAddress>
+          <port>8080</port>
+        </piCamera>
+      </MotionHandler>
+    </motionHandlers>
+  </ControlledArea>
+  <ControlledArea>
+    <areaId>FrontGate</areaId>
+    <areaName>Front Gate</areaName>
+    <relayHosts />
+    <motionHandlers>
+      <MotionHandler>
+        <pirName>Gate Shack</pirName>
+        <piCamera>
+          <ipAddress>rpiZero4</ipAddress>
+          <port>8085</port>
+        </piCamera>
+      </MotionHandler>
+      <MotionHandler>
+        <pirName>Gate Entrance</pirName>
+        <piCamera>
+          <ipAddress>rpiZero9</ipAddress>
+          <port>8080</port>
+        </piCamera>
+      </MotionHandler>
+    </motionHandlers>
+  </ControlledArea>
+</ArrayOfControlledArea>

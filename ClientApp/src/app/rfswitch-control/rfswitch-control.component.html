@@ -1,0 +1,28 @@
+<h1>RF Switches {{this.rfswitchService.lastUpdate}}<img src="../../assets//images/reload.png" width="48" height="48" (click)="reload()" /></h1>
+
+<p *ngIf="!rfswitchService.detections"><em>Loading...</em></p>
+ 
+<table class='table' *ngIf="rfswitchService.detections">
+  <thead>
+    <tr>
+      <th>Area Name</th>
+      <th>Device Name</th>
+      <th>Relay State</th>
+      <th>Last On</th>
+      <th>Last Off</th>
+      <th>RF Codes</th>    
+      <th>MCU List</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let sw of rfswitchService.detections">
+      <td>{{ sw.areaName }}</td>
+      <td>{{ sw.deviceName }}</td>
+      <td><img id="toggle{{sw.localDeviceId}}" src="../../assets/images/hs100-{{sw.swState == 1 ? 1 : 0}}.png" width="32" height="24" (click)="handleToggle($event)"/></td>
+      <td>{{ sw.lastOnCode }}</td>
+      <td>{{ sw.lastOffCode }}</td>
+      <td>{{ sw.rfCodes.length }}</td>
+      <td>{{ sw.slaves.length }}</td>
+    </tr>
+  </tbody>
+</table>

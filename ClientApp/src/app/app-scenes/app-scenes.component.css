@@ -1,0 +1,15 @@
+#rcorners1 {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  background: lightgrey;
+  border-radius: 15px;
+}
+
+#rcorners2 {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  background: grey;
+  border-radius: 15px;
+}

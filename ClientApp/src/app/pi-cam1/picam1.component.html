@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{title}}</title>
+  <meta name="viewport" content="width=device-width, minimum-scale=0.1">
+</head>
+<body style="margin: 0px; background: #0e0e0e;">
+  <button (click)="rotate()">Press me to rotate</button><br />
+  <img [@rotatedState]='state' style="-webkit-user-select: none;" src="{{baseCamUrl}}"> 
+</body>     
+</html>

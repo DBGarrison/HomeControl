@@ -1,0 +1,48 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:5000",
+      "sslPort": 0
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "HOSTPORT": "homepc:5000",
+        "APPSCENE_PATH": "./AppScenes.xml",
+        "VIDEO_PATH": "/surveillance",
+        "RF_AREAS_PATH": "./RFAreas.xml",
+        "RF_SWITCHES_PATH": "./RFAreaSwitches.xml",
+        "HS100CONFIG_PATH": "./HS100DeviceList.xml",
+        "AREA_DETECTIONS_PATH": "./AreaDetections.xml",
+        "FANDEVICE_PATH": "./FanDevice.xml",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "RELAY_DEVICES_PATH": "./RelayDevices.xml"
+      }
+    },
+    "HomeControl": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "HOSTPORT": "homepc:5000",
+        "CONTROLLED_AREAS_PATH": "ControlledAreas.xml",
+        "APPSCENE_PATH": "AppScenes.xml",
+        "EVENT_LOG": "EventLog.log",
+        "CONFIG_FOLDER": "C:/Users/David/Documents/Sources/HomeControl/Config",
+        "VIDEO_PATH": "c:/Surveillance",
+        "RF_AREAS_PATH": "RFAreas.xml",
+        "RF_SWITCHES_PATH": "RFAreaSwitches.xml",
+        "HS100CONFIG_PATH": "HS100DeviceList.xml",
+        "AREA_DETECTIONS_PATH": "AreaDetections.xml",
+        "FANDEVICE_PATH": "FanDevice.xml",
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "RELAY_DEVICES_PATH": "RelayDevices.xml"
+      },
+      "applicationUrl": "http://localhost:5000"
+    }
+  }
+}

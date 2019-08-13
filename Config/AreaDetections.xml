@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<ArrayOfPIRDevice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <PIRDevice>
+    <area>Tower</area>
+    <deviceName>Tower SE</deviceName>
+    <mcu>
+      <ipAddress>RpiZero6</ipAddress>
+      <port>80</port>
+      <remoteDeviceId>0</remoteDeviceId>
+      <configId>0</configId>
+      <deviceType>Motion</deviceType>
+    </mcu>
+    <pirStatus>Idle</pirStatus>
+  </PIRDevice>
+  <PIRDevice>
+    <area>Tower</area>
+    <deviceName>Tower SW</deviceName>
+    <mcu>
+      <ipAddress>RpiZero7</ipAddress>
+      <port>80</port>
+      <remoteDeviceId>0</remoteDeviceId>
+      <configId>0</configId>
+      <deviceType>Motion</deviceType>
+    </mcu>
+    <pirStatus>Idle</pirStatus>
+  </PIRDevice>
+  <PIRDevice>
+    <area>Tower</area>
+    <deviceName>Tower NW</deviceName>
+    <mcu>
+      <ipAddress>RpiZero10</ipAddress>
+      <port>80</port>
+      <remoteDeviceId>0</remoteDeviceId>
+      <configId>0</configId>
+      <deviceType>Motion</deviceType>
+    </mcu>
+    <pirStatus>Idle</pirStatus>
+  </PIRDevice>
+  <PIRDevice>
+    <area>Concessions</area>
+    <deviceName>Concessions Front</deviceName>
+    <mcu>
+      <ipAddress>RpiZero5</ipAddress>
+      <port>80</port>
+      <remoteDeviceId>0</remoteDeviceId>
+      <configId>0</configId>
+      <deviceType>Motion</deviceType>
+    </mcu>
+    <pirStatus>Idle</pirStatus>
+  </PIRDevice>
+  <PIRDevice>
+    <area>Concessions</area>
+    <deviceName>Concessions Entrance</deviceName>
+    <mcu>
+      <ipAddress>RpiZero11</ipAddress>
+      <port>80</port>
+      <remoteDeviceId>0</remoteDeviceId>
+      <configId>0</configId>
+      <deviceType>Motion</deviceType>
+    </mcu>
+    <pirStatus>Idle</pirStatus>
+  </PIRDevice>
+  <PIRDevice>
+    <area>FrontGate</area>
+    <deviceName>Gate Shack</deviceName>
+    <mcu>
+      <ipAddress>RpiZero4</ipAddress>
+      <port>80</port>
+      <remoteDeviceId>0</remoteDeviceId>
+      <configId>0</configId>
+      <deviceType>Motion</deviceType>
+    </mcu>
+    <pirStatus>Idle</pirStatus>
+  </PIRDevice>
+  <PIRDevice>
+    <area>FrontGate</area>
+    <deviceName>Gate Entrance</deviceName>
+    <mcu>
+      <ipAddress>RpiZero9</ipAddress>
+      <port>80</port>
+      <remoteDeviceId>0</remoteDeviceId>
+      <configId>0</configId>
+      <deviceType>Motion</deviceType>
+    </mcu>
+    <pirStatus>Idle</pirStatus>
+  </PIRDevice>
+</ArrayOfPIRDevice>

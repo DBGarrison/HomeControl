@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.106
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HomeControl", "HomeControl.csproj", "{07BABF76-50FD-49E8-9AFC-8BE141280AEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07BABF76-50FD-49E8-9AFC-8BE141280AEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07BABF76-50FD-49E8-9AFC-8BE141280AEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07BABF76-50FD-49E8-9AFC-8BE141280AEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07BABF76-50FD-49E8-9AFC-8BE141280AEC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {368D77B0-EAC1-45FD-8CC0-C872FC58A928}
+	EndGlobalSection
+EndGlobal

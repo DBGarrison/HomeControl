@@ -1,0 +1,85 @@
+<div class='main-nav'>
+    <div class='navbar navbar-inverse'>
+        <div class='navbar-header'>
+            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse' [attr.aria-expanded]='isExpanded' (click)='toggle()'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+            </button>
+            <a class='navbar-brand' [routerLink]='["/"]'>HomeControl</a>
+        </div>
+        <div class='clearfix'></div>
+        <div class='navbar-collapse collapse' [ngClass]='{ "in": isExpanded }'>
+          <ul class='nav navbar-nav'>
+            <li [routerLinkActive]='["link-active"]' [routerLinkActiveOptions]='{ exact: true }'>
+              <a [routerLink]='["/home"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-home'></span> Home
+              </a>
+            </li>
+            <li [routerLinkActive]='["link-active"]'>
+              <a [routerLink]='["/app-scenes"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-th-list'></span> Smart Home
+              </a>
+            </li>
+            <li [routerLinkActive]='["link-active"]'>
+              <a [routerLink]='["/fan-control"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-'></span> Fan Control
+              </a>
+            </li>
+            <li [routerLinkActive]='["link-active"]'>
+              <a [routerLink]='["/camera-dashboard"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-camera'></span> Cameras
+              </a>
+            </li>
+            <li [routerLinkActive]='["link-active"]'>
+              <a [routerLink]='["/video-playlist"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-list'></span> Playlist
+              </a>
+            </li>
+            <li [routerLinkActive]='["link-active"]'>
+              <a [routerLink]='["/pi-camera4"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-camera'></span> RpiZero4
+              </a>
+            </li>
+            <li [routerLinkActive]='["link-active"]'>
+              <a [routerLink]='["/pi-camera5"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-camera'></span> RpiZero5
+              </a>
+            </li>
+            <li [routerLinkActive]='["link-active"]'>
+              <a [routerLink]='["/pi-camera6"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-camera'></span> RpiZero6
+              </a>
+            </li>
+            <li [routerLinkActive]='["link-active"]'>
+              <a [routerLink]='["/pi-camera7"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-camera'></span> RpiZero7
+              </a>
+            </li>
+
+            <li [routerLinkActive]='["link-active"]'>
+              <a [routerLink]='["/pi-camera10"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-camera'></span> RpiZero10
+              </a>
+            </li>
+            <li [routerLinkActive]='["link-active"]'>
+              <a [routerLink]='["/pi-camera11"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-camera'></span> RpiZero11
+              </a>
+            </li>
+
+            <li [routerLinkActive]='["link-active"]'>
+              <a [routerLink]='["/hs100-control"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-th-list'></span> HS100 Switches
+              </a>
+            </li>
+            <li [routerLinkActive]='["link-active"]'>
+              <a [routerLink]='["/rfswitch-control"]' (click)='collapse()'>
+                <span class='glyphicon glyphicon-th-list'></span> RF Switches
+              </a>
+            </li>
+          </ul>
+        </div>
+    </div>
+</div>
