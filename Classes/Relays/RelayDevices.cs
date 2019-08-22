@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -21,18 +21,20 @@ namespace HomeControl.Relays
 		private List<RelayDevice> _relays;		 
 		private readonly ILogger _logger;
 		private readonly IControlledAreas _controlledAreas;
-        private readonly PiCollection _piCollection;
+		//private readonly PiCollection _piCollection;
+		private readonly SlaveColection _slaveCollection;
 
-        public RelayDevices(ILoggerFactory loggerFactory, IControlledAreas controlledAreas, IPiCollection piCollection)
+		public RelayDevices(ILoggerFactory loggerFactory, IControlledAreas controlledAreas, ISlaveCollection slaveCollection)
 		{
 			_logger = loggerFactory.CreateLogger<RelayDevices>();
 			_relays = new List<RelayDevice>();
 			_controlledAreas = controlledAreas;
-            _piCollection = piCollection as PiCollection;
+			//_piCollection = piCollection as PiCollection;
+			_slaveCollection = slaveCollection as SlaveColection;
 
-            //bool startFresh = !System.IO.File.Exists(_xmlPath);
-            //load(startFresh, loggerFactory);	
-            foreach (var rpi in _piCollection.zeros.Where(z => z.Relays.Count > 0))
+			//bool startFresh = !System.IO.File.Exists(_xmlPath);
+			//load(startFresh, loggerFactory);	
+			foreach (var rpi in _slaveCollection.zeros.Where(z => z.Relays.Count > 0))
             {
                 rpi.Relays.ForEach(r => {
                     RelayDevice relay = new RelayDevice((Enums.ControlledAreas)r.area,
@@ -54,8 +56,30 @@ namespace HomeControl.Relays
                 //    _relays.Add(relay);
                 //}
             }
+			foreach (var nodeMcu in _slaveCollection.nodeMCUs.Where(z => z.Relays.Count > 0))
+			{
+				nodeMcu.Relays.ForEach(r => {
+					RelayDevice relay = new RelayDevice((Enums.ControlledAreas)r.area,
+									   r.deviceName,
+									   r.state == 1,
+									   nodeMcu.ipAddress);
+					relay.mcu.port = nodeMcu.port;
+					_relays.Add(relay);
+				});
 
-            _relays.ForEach(d => d.createLogger(loggerFactory));
+				//foreach (var rpiDevice in rpi.Relays)
+				//{
+
+				//    RelayDevice relay = new RelayDevice((Enums.ControlledAreas)rpiDevice.area,
+				//                                            rpiDevice.deviceName,
+				//                                            rpiDevice.state == 1,
+				//                                            rpi.ipAddress);
+				//    relay.mcu.port = rpi.port;
+				//    _relays.Add(relay);
+				//}
+			}
+
+			_relays.ForEach(d => d.createLogger(loggerFactory));
             _relays.ForEach(d => d.controlledAreas = _controlledAreas.controlledAreas);
             return;
         }
@@ -74,7 +98,7 @@ namespace HomeControl.Relays
 			}
 		}
 
-		public string _xmlPath { get { return Environment.GetEnvironmentVariable("CONFIG_FOLDER") + "/" +
+		public string _xmlPath { get { return Common.configFolder + "/" +
                                               Environment.GetEnvironmentVariable("RELAY_DEVICES_PATH"); } }
 		public int Count { get { return _relays.Count; } }
  
