@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,33 +20,51 @@ namespace HomeControl.RFSwitch
 		private List<RFSwitchDevice> _switches;
 		private readonly ILogger _logger;
 		private readonly IControlledAreas _controlledAreas;
-        private readonly PiCollection _piCollection;
+		//private readonly PiCollection _piCollection;
+		private readonly SlaveColection _slaveCollection;
 
-        public RFSwitches(ILoggerFactory loggerFactory, IControlledAreas controlledAreas, IPiCollection piCollection)
-        {
+		public RFSwitches(ILoggerFactory loggerFactory, IControlledAreas controlledAreas, ISlaveCollection slaveCollection)
+		{
             _logger = loggerFactory.CreateLogger<RFSwitches>();
             _switches = new List<RFSwitchDevice>();
             _controlledAreas = controlledAreas;
-            _piCollection = piCollection as PiCollection;
+			//_piCollection = piCollection as PiCollection;
+			_slaveCollection = slaveCollection as SlaveColection;
 
-            //         bool startFresh = !System.IO.File.Exists(_xmlPath);
-            //load(startFresh, loggerFactory);	
-            foreach (var rpi in _piCollection.zeros)
+			//         bool startFresh = !System.IO.File.Exists(_xmlPath);
+			//load(startFresh, loggerFactory);	
+			foreach (var rpi in _slaveCollection.zeros)
             {
-                foreach (var rpiDevice in rpi.RFSwitches)
+                foreach (var rfDevice in rpi.RFSwitches)
                 {
-                    RFSwitchDevice sw = new RFSwitchDevice((Enums.ControlledAreas)rpiDevice.area, rpiDevice.deviceName, rpiDevice.bitLength);
+                    RFSwitchDevice sw = new RFSwitchDevice((Enums.ControlledAreas)rfDevice.area, rfDevice.deviceName, rfDevice.bitLength);
                     sw.mcu.ipAddress = rpi.ipAddress;
                     sw.mcu.port = rpi.port;
 
-                    rpiDevice.onCodes.Skip(1).ToList().ForEach(c => sw.addCode(true, (Convert.ToInt64(c))));
+                    rfDevice.onCodes.Skip(1).ToList().ForEach(c => sw.addCode(true, (Convert.ToInt64(c))));
 
-                    rpiDevice.offCodes.Skip(1).ToList().ForEach(c => sw.addCode(false, (Convert.ToInt32(c))));
+                    rfDevice.offCodes.Skip(1).ToList().ForEach(c => sw.addCode(false, (Convert.ToInt32(c))));
 
                     _switches.Add(sw);
                 }
             }
-            _switches.ForEach(d => d.createLogger(loggerFactory));
+			foreach (var nodeMcu in _slaveCollection.nodeMCUs)
+			{
+				foreach (var rfDevice in nodeMcu.RFSwitches)
+				{
+
+					RFSwitchDevice sw = new RFSwitchDevice((Enums.ControlledAreas)rfDevice.area, rfDevice.deviceName, rfDevice.bitLength);
+					sw.mcu.ipAddress = nodeMcu.ipAddress;
+					sw.mcu.port = nodeMcu.port;
+
+					rfDevice.onCodes.Skip(1).ToList().ForEach(c => sw.addCode(true, (Convert.ToInt64(c))));
+
+					rfDevice.offCodes.Skip(1).ToList().ForEach(c => sw.addCode(false, (Convert.ToInt32(c))));
+
+					_switches.Add(sw);
+				}
+			}
+			_switches.ForEach(d => d.createLogger(loggerFactory));
             _switches.ForEach(d => d.controlledAreas = _controlledAreas.controlledAreas);
             return;
         }
@@ -63,7 +81,7 @@ namespace HomeControl.RFSwitch
 			}
 		}
 
-		public string _xmlPath { get { return Environment.GetEnvironmentVariable("CONFIG_FOLDER") + "/" +
+		public string _xmlPath { get { return Common.configFolder + "/" +
                                               Environment.GetEnvironmentVariable("RF_SWITCHES_PATH"); } }
 		public int Count { get { return areaSwitches.Count; } }
 		public List<RFSwitchDevice> areaSwitches { get { return _switches; } }
