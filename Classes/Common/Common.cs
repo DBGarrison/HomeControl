@@ -16,6 +16,7 @@ namespace HomeControl
     internal sealed class Common
     {
 		 
+		internal static string configFolder { get { return Environment.GetEnvironmentVariable("CONFIG_FOLDER"); } }
 
 		internal static string GetDateTimeFileName(DateTime dt)
 		{
