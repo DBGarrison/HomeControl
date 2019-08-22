@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -112,6 +112,7 @@ namespace HomeControl
 
 		public enum EnumPirStatus { Idle = 0, Queued, DeQueued, Streaming, Stopping }
 
-        public enum RemoteOSType { None = 0, Esp8266 = 1, Esp32 = 2, Rpi = 3}
+		[Flags]
+		public enum RemoteOSType { None = 0, Esp8266 = 1, Esp32 = 2, Rpi = 4}
 	}
 }
