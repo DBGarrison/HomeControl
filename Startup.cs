@@ -45,7 +45,8 @@ namespace HomeControl
             //services.AddHostedService<ObjectDetectionService>();
 
             //services.AddSingleton<IBackgroundTaskQueue, BackgroundTaskQueue>();
-            services.AddSingleton<IPiCollection, PiCollection>();
+            //services.AddSingleton<IPiCollection, PiCollection>();
+	services.AddSingleton<ISlaveCollection, SlaveColection>();
             services.AddSingleton<IControlledAreas, ControlledAreas>();
 			services.AddSingleton<IRFSwitches, RFSwitches>();
 			services.AddSingleton<IPIRDevices, PIRDevices>();
