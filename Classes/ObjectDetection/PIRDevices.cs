@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,18 +20,19 @@ namespace HomeControl.ObjectDetection
 		private List<PIRDevice> _detects;		 
 		private readonly ILogger _logger;
 		private readonly IControlledAreas _controlledAreas;
-        private readonly PiCollection _piCollection;
+		//private readonly PiCollection _piCollection;
+		private readonly SlaveColection _slaveCollection;
 
-        public PIRDevices(ILoggerFactory loggerFactory, IControlledAreas controlledAreas, IPiCollection piCollection)
+		public PIRDevices(ILoggerFactory loggerFactory, IControlledAreas controlledAreas, ISlaveCollection slaveCollection)
         {
             _logger = loggerFactory.CreateLogger<PIRDevices>();
             _detects = new List<PIRDevice>();
             _controlledAreas = controlledAreas;
-            _piCollection = piCollection as PiCollection;
+            _slaveCollection = slaveCollection as SlaveColection;
 
             //         bool startFresh = !System.IO.File.Exists(_xmlPath);
             //load(startFresh, loggerFactory);	
-            foreach (var rpi in _piCollection.zeros)
+            foreach (var rpi in _slaveCollection.zeros)
             {
                 foreach (var rpiDevice in rpi.PirDevices)
                 {
@@ -41,7 +42,17 @@ namespace HomeControl.ObjectDetection
                     _detects.Add(pir);
                 }
             }
-            _detects.ForEach(d => d.createLogger(loggerFactory));
+			foreach (var nodeMcu in _slaveCollection.nodeMCUs)
+			{
+				foreach (var nodeMcuDevice in nodeMcu.PirDevices)
+				{
+
+					PIRDevice pir = new PIRDevice((Enums.ControlledAreas)nodeMcuDevice.area, nodeMcuDevice.deviceName, nodeMcu.ipAddress);
+					pir.mcu.port = nodeMcu.port;
+					_detects.Add(pir);
+				}
+			}
+			_detects.ForEach(d => d.createLogger(loggerFactory));
             _detects.ForEach(d => d.controlledAreas = _controlledAreas.controlledAreas);
             return;
         }
@@ -60,7 +71,7 @@ namespace HomeControl.ObjectDetection
 			}
 		}
 
-		public string _xmlPath { get { return Environment.GetEnvironmentVariable("CONFIG_FOLDER") + "/" +
+		public string _xmlPath { get { return Common.configFolder + "/" +
                                               Environment.GetEnvironmentVariable("AREA_DETECTIONS_PATH"); } }
 		public int Count { get { return _detects.Count; } }
  
