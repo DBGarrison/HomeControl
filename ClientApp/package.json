@@ -28,7 +28,7 @@
     "@material/grid-list": "^1.1.0",
     "@material/image-list": "^1.1.1",
     "@nguniversal/module-map-ngfactory-loader": "^5.0.0",
-    "acorn": "^6.0.0",
+    "acorn": "^6.4.1",
     "aspnet-prerendering": "^3.0.1",
     "bootstrap": "^3.4.1",
     "core-js": "^2.6.5",
